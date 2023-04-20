@@ -1,7 +1,7 @@
 package dev.mcenv.truffle;
 
 import com.mojang.brigadier.CommandDispatcher;
-import dev.mcenv.spy.Register;
+import dev.mcenv.spy.Commands;
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Engine;
 
@@ -9,12 +9,12 @@ import static com.mojang.brigadier.arguments.StringArgumentType.*;
 import static com.mojang.brigadier.builder.LiteralArgumentBuilder.literal;
 import static com.mojang.brigadier.builder.RequiredArgumentBuilder.argument;
 
-public final class EvalRegister implements Register, AutoCloseable {
+public final class EvalCommands implements Commands, AutoCloseable {
   private final Engine engine = Engine.create();
   private Minecraft minecraft;
 
   @Override
-  public void apply(final CommandDispatcher<Object> dispatcher) {
+  public void register(final CommandDispatcher<Object> dispatcher) {
     minecraft = new Minecraft(dispatcher);
 
     dispatcher.register(
