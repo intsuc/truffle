@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-  implementation("dev.mcenv:spy:0.1.1")
+  implementation("dev.mcenv:spy:0.1.2")
   implementation("org.graalvm.truffle:truffle-api:22.3.2")
 }
 
